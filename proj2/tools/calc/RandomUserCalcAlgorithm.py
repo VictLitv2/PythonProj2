@@ -17,5 +17,8 @@ class RandomUserCalcAlgorithm(CalcAlgorithm):
         while self.total_tries is None or type(self.total_tries) != int:
             total_tries_str = input(
                 "Please enter number of tries to search random user on  site `randomuser.me`\n")
-            self.total_tries = int(total_tries_str.replace(' ', ''))
+            try:
+                self.total_tries = int(total_tries_str.replace(' ', ''))
+            except:
+                print("Error occured")
         return {UserSearchParams.RANDOM_USER_NUM_OF_SEARCHES: str(self.total_tries)}

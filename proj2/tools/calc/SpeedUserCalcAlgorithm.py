@@ -41,5 +41,8 @@ class SpeedUserCalcAlgorithm(CalcAlgorithm):
         while self.latitude is None or type(self.latitude) != float:
             latitude_str = input(
                 "Please enter user's latitude  to search on site\n(it should be number or fraction with dot)\n")
-            self.latitude = float(latitude_str.replace(' ', ''))
+            try:
+                self.latitude = float(latitude_str.replace(' ', ''))
+            except:
+                print("Error occured")
         return {"lat": str(self.latitude)}
