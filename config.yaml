@@ -1,0 +1,9 @@
+my_user_case:
+  url: https://jsonplaceholder.typicode.com/users/
+  calc_algorithm_type: 1
+speed_user_case:
+  url: https://jsonplaceholder.typicode.com/users
+  calc_algorithm_type: 2
+random_user_case:
+  url: https://randomuser.me/api/
+  calc_algorithm_type: 3
