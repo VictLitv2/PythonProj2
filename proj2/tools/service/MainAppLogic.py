@@ -1,3 +1,5 @@
+import codecs
+
 from proj2.tools.service.UserService import UserService
 from proj2.tools.props_read.ConfigPropertiesReader import ConfigPropertiesReader
 from proj2.tools.const.ConfigConsts import ConfigConsts, WorkflowCases, AlgorithmType
@@ -9,6 +11,7 @@ from proj2.tools.create.service_deps.RandomUserConfiguredServiceDepsFactory impo
     RandomUserConfiguredServiceDepsFactory
 from proj2.tools.create.service_deps.ConfiguredServiceDepsFactory import ConfiguredServiceDepsFactory
 
+import codecs
 
 class MainAppLogic():
     config_props = None
@@ -38,15 +41,22 @@ class MainAppLogic():
         return props
 
     def __process_input_param(self):
-        case_num_str = input(f"Please enter application workflow case numbered from 1 to 3\n")
-        if not case_num_str.isnumeric():
-            print("Error:Your input is not number")
-            return None
-        case_num = int(case_num_str)
-        if not case_num in range(1, 4):
-            print("Error:Your input is not in possible range")
-            return None
-        return case_num
+       case_num_str = None
+       case_num = None
+       while case_num is None or case_num not in range(1, 4):
+            case_num_str = input(f"Please enter application workflow case numbered from 1 to 3\n")
+            if not case_num_str.isnumeric():
+                print("Error:Your input is not number")
+
+            try:
+                case_num = int(case_num_str)
+
+                if not case_num in range(1, 4):
+                    print("Error:Your input is not in possible range")
+
+            except:
+                print("Error")
+       return case_num
 
     def __resolve_service_definition(self, user_input: int):
         # self.serv_definition_by_app_config
@@ -86,5 +96,10 @@ class MainAppLogic():
         for logic_part in logic_parts:
             logic_part_param = logic_part(logic_part_param)
         logic_result = logic_part_param
-        print(f"Result of your search is:{logic_result}\n")
+        print(f"Result of your search is:\n")
+        try:
+            for each_item in logic_result:
+                print(codecs.decode(bytes(each_item)))
+        except Exception as err:
+                print (err)
         return logic_result

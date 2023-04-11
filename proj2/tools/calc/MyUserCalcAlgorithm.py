@@ -5,7 +5,8 @@ class MyUserCalcAlgorithm(CalcAlgorithm):
             return "User not found"
         result = []
         for calc_param in calc_params:
-            result.append( str(calc_param) )
+            result.append(str(calc_param).encode(encoding="utf-8") )
+
         return result
 
     def provide_additional_user_params(self):

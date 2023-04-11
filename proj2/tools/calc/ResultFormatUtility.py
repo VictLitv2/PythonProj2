@@ -3,5 +3,6 @@ class ResultFormatUtility:
     def str_repr(items: list):
         result = []
         for item in items:
-            result.append(f'{item}')
+            item_str = str(item).encode(encoding="utf-8")
+            result.append(item_str)
         return result
