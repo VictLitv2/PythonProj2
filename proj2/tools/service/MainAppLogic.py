@@ -99,7 +99,7 @@ class MainAppLogic():
         print(f"Result of your search is:\n")
         try:
             for each_item in logic_result:
-                print(codecs.decode(bytes(each_item)))
+                print(bytes(each_item).decode("utf-8","ignore"))
         except Exception as err:
                 print (err)
         return logic_result

@@ -25,6 +25,7 @@ class SpeedUserCalcAlgorithm(CalcAlgorithm):
         calculated_results = self.__calculate_with_min_lat_diff(all_results_from_site)
         self.latitude = None
         self.latitude_diffs = []
+
         return ResultFormatUtility.str_repr(calculated_results)
     def __calculate_diff(self,a,b):
         sign = lambda x: math.copysign(1, x)
