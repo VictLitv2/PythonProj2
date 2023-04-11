@@ -2,7 +2,7 @@ from proj2.tools.calc.CalcAlgorithm import CalcAlgorithm
 class MyUserCalcAlgorithm(CalcAlgorithm):
     def calculate(self, calc_params) ->object:
         if calc_params == None or len(calc_params) == 0:
-            return "User not found"
+            return ["User not found".encode(encoding="utf-8")]
         result = []
         for calc_param in calc_params:
             result.append(str(calc_param).encode(encoding="utf-8") )
