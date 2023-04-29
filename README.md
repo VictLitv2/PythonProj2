@@ -1,5 +1,5 @@
 # PythonProj2
-This code can  demonstrate all 3 cases from Project 2 tasks in Python DevSecOps BIU.
+This code can  demonstrate all 3 cases from Project 2 tasks.
 
 Please keep in mind that 
 pip install -r requirements.txt - should be run before 
